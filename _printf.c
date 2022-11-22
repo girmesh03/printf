@@ -21,10 +21,10 @@ int handle_print(const char *fmt, int *i, va_list list, char buffer[])
 		{'c', print_char},
 		{'s', print_string},
 		{'%', print_percent},
-		{NULL, NULL}
+		{'\0', NULL}
 	};
 
-	for (j = 0; function[j].fmt != NULL; j++)
+	for (j = 0; function[j].fmt != '\0'; j++)
 	{
 		if (fmt[*i] == function[j].fmt)
 		{
