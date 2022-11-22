@@ -63,7 +63,7 @@ int _printf(const char *format, ...)
 {
 	int i, printed = 0, printed_chars = 0, buff_ind = 0;
 	char buffer[BUFF_SIZE];
-	modifier m = {0,0,0,0};
+	modifier m = {0, 0, 0, 0};
 	modifier *ptr = &m;
 
 	va_list list;
