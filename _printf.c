@@ -19,10 +19,12 @@ int handle_print(const char *fmt, int *i, va_list list, char buffer[])
 
 	fmt_t function[] = {
 		{'c', print_char},
-		{'\0', NULL}
+		{'s', print_string},
+		{'%', print_percent},
+		{NULL, NULL}
 	};
 
-	for (j = 0; function[j].fmt != '\0'; j++)
+	for (j = 0; function[j].fmt != NULL; j++)
 	{
 		if (fmt[*i] == function[j].fmt)
 		{
@@ -61,7 +63,7 @@ int _printf(const char *format, ...)
 {
 	int i, printed = 0, printed_chars = 0, buff_ind = 0;
 	char buffer[BUFF_SIZE];
-	modifier m = {0, 0, 0, 0};
+	modifier m = {0,0,0,0};
 	modifier *ptr = &m;
 
 	va_list list;
